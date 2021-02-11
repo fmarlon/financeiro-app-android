@@ -1,0 +1,22 @@
+{
+  "contas": [
+    {
+      "id": 1,
+      "nome": "Minha Conta BB",
+      "banco": {
+        "id": "1"
+      },
+      "agencia": "1563-0",
+      "numero": "45620-X"
+    },
+    {
+      "id": 2,
+      "nome": "Minha Conta Bradesco",
+      "banco": {
+        "id": "237"
+      },
+      "agencia": "0475",
+      "numero": "2005-8"
+    }
+  ]
+}
