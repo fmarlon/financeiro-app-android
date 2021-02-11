@@ -35,8 +35,8 @@ class ContasActivity : AppCompatActivity() {
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
         binding.listview.layoutManager = layoutManager
 
-        binding.listview.adapter =
-            ContaViewAdapter(list)
+        val adapter = ContaViewAdapter(list)
+        binding.listview.adapter = adapter
 
     }
 

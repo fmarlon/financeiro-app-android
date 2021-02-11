@@ -1,6 +1,12 @@
 package dev.estudos.android.financeiro.model
 
-data class Banco (
-    val id : Int = 0,
-    val nome: String = ""
-)
+import java.io.Serializable
+
+data class Banco (val id : Int = 0): Serializable {
+    var nome: String = ""
+
+    constructor(id: Int, name: String): this(id) {
+        this.nome = name
+    }
+
+}
