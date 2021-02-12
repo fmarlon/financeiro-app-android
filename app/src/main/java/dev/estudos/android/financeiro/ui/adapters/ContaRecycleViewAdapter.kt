@@ -3,13 +3,14 @@ package dev.estudos.android.financeiro.ui.adapters
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import dev.estudos.android.financeiro.databinding.ItemContaBinding
 import dev.estudos.android.financeiro.model.Conta
-import dev.estudos.android.financeiro.ui.FormContaActivity
+import dev.estudos.android.financeiro.ui.CONTA_EXTRA_PARAM
+import dev.estudos.android.financeiro.ui.activities.FormContaActivity
+import dev.estudos.android.financeiro.ui.getImageResource
 
-class ContaViewAdapter(val list: List<Conta>) : RecyclerView.Adapter<ContaViewAdapter.ViewHolder>() {
+class ContaRecycleViewAdapter(val list: List<Conta>) : RecyclerView.Adapter<ContaRecycleViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -19,7 +20,7 @@ class ContaViewAdapter(val list: List<Conta>) : RecyclerView.Adapter<ContaViewAd
         viewHolder.itemView.setOnClickListener {
             val conta = viewHolder.item!!
             val intent = Intent(parent.context, FormContaActivity::class.java)
-            intent.putExtra("CONTA", conta)
+            intent.putExtra(CONTA_EXTRA_PARAM, conta)
             parent.context.startActivity(intent)
         }
         return viewHolder;
@@ -39,20 +40,11 @@ class ContaViewAdapter(val list: List<Conta>) : RecyclerView.Adapter<ContaViewAd
 
         fun bind(item: Conta) {
             this.item = item
-            val image = getImage("img_banco_${item.banco.id}")
+            val image = binding.root.context.getImageResource("img_banco_${item.banco.id}")
             binding.imgBanco.setImageResource(image)
             binding.txtNome.text = item.nome
             binding.txtAgencia.text = item.agencia
             binding.txtNumero.text = item.numero
-        }
-
-        fun getImage(imageName: String): Int {
-            val resId: Int = binding.root.context.resources.getIdentifier(
-                imageName,
-                "drawable",
-                binding.root.context.packageName
-            )
-            return resId
         }
 
     }

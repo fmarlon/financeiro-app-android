@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinanceiroApp">
-        <activity android:name=".ui.FormContaActivity"></activity>
-        <activity android:name=".ui.ContasActivity" />
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.activities.FormContaActivity"></activity>
+        <activity android:name=".ui.activities.ContasActivity" />
+        <activity android:name=".ui.activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

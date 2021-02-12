@@ -1,4 +1,4 @@
-package dev.estudos.android.financeiro.ui
+package dev.estudos.android.financeiro.ui.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

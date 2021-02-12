@@ -1,15 +1,16 @@
-package dev.estudos.android.financeiro.ui
+package dev.estudos.android.financeiro.ui.activities
 
 import android.os.Bundle
 import android.view.View
-import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import dev.estudos.android.financeiro.R
 import dev.estudos.android.financeiro.databinding.ActivityFormContaBinding
-import dev.estudos.android.financeiro.model.Banco
 import dev.estudos.android.financeiro.model.Conta
-import dev.estudos.android.financeiro.ui.adapters.CustomSpinnerAdapter
+import dev.estudos.android.financeiro.ui.CONTA_EXTRA_PARAM
+import dev.estudos.android.financeiro.ui.adapters.BancoSpinnerAdapter
+import dev.estudos.android.financeiro.ui.setSelectionItem
+import dev.estudos.android.financeiro.utils.MockData
 
 class FormContaActivity : AppCompatActivity() {
 
@@ -26,19 +27,11 @@ class FormContaActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
-        val bancos = listOf(
-            Banco(0, ""),
-            Banco(1, "Banco do Brasil"),
-            Banco(237, "Bradesco"),
-            Banco(104, "Caixa Economica"),
-            Banco(33, "Santander")
-        )
-
-        val bancoAdapter = CustomSpinnerAdapter(this, R.layout.banco_spinner_item, bancos)
+        val bancoAdapter = BancoSpinnerAdapter(this, R.layout.banco_spinner_item, MockData.BANCOS)
         bancoAdapter.setDropDownViewResource(R.layout.banco_spinner_item)
         binding.spnBanco.adapter = bancoAdapter
 
-        conta = intent.getSerializableExtra("CONTA") as Conta?
+        conta = intent.getSerializableExtra(CONTA_EXTRA_PARAM) as Conta?
         popularComponentes()
     }
 
@@ -47,13 +40,12 @@ class FormContaActivity : AppCompatActivity() {
             binding.txtNome.text.append(it.nome)
             binding.txtAgencia.text.append(it.agencia)
             binding.txtNumero.text.append(it.numero)
-            binding.spnBanco.setSelection((binding.spnBanco.adapter as CustomSpinnerAdapter).getPosition(it.banco))
+            binding.spnBanco.setSelectionItem(it.banco)
         }
     }
 
     fun btnSalvarClick(view: View) {
         Toast.makeText(this, "Nao implementado", Toast.LENGTH_SHORT).show()
-        // this.finish()
     }
 
     fun btnFecharClick(view: View) {
