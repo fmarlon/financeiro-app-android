@@ -16,7 +16,7 @@ class FormContaActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityFormContaBinding
 
-    var conta: Conta? = null
+    var conta: Conta = Conta()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,21 +31,19 @@ class FormContaActivity : AppCompatActivity() {
         bancoAdapter.setDropDownViewResource(R.layout.banco_spinner_item)
         binding.spnBanco.adapter = bancoAdapter
 
-        conta = intent.getSerializableExtra(CONTA_EXTRA_PARAM) as Conta?
-        popularComponentes()
-    }
+        conta = intent.getSerializableExtra(CONTA_EXTRA_PARAM) as Conta
 
-    private fun popularComponentes() {
-        conta?.let {
-            binding.txtNome.text.append(it.nome)
-            binding.txtAgencia.text.append(it.agencia)
-            binding.txtNumero.text.append(it.numero)
-            binding.spnBanco.setSelectionItem(it.banco)
-        }
+        binding.conta = conta
     }
 
     fun btnSalvarClick(view: View) {
-        Toast.makeText(this, "Nao implementado", Toast.LENGTH_SHORT).show()
+        val map = mapOf(
+            "nome" to conta.nome,
+            "banco" to conta.banco.id,
+            "agencia" to conta.agencia,
+            "numero" to conta.numero
+        )
+        Toast.makeText(this, map.entries.joinToString("\n"), Toast.LENGTH_SHORT).show()
     }
 
     fun btnFecharClick(view: View) {

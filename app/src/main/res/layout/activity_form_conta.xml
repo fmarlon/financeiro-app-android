@@ -1,51 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="conta"
+            type="dev.estudos.android.financeiro.model.Conta" />
+    </data>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.activities.FormContaActivity">
 
-    <EditText
-        android:id="@+id/txtNome"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilNome"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:inputType="textPersonName"
-        android:hint="Nome da Conta" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nome da Conta"
+            android:inputType="textPersonName"
+            android:text="@={conta.nome}" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatSpinner
         android:id="@+id/spnBanco"
         style="@style/Widget.AppCompat.Spinner.Underlined"
         android:layout_height="wrap_content"
         android:layout_width="0dp"
+        app:selectionItem="@={conta.banco}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtNome" />
+        app:layout_constraintTop_toBottomOf="@id/tilNome" />
 
-    <EditText
-        android:id="@+id/txtAgencia"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilAgencia"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/spnBanco"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:inputType="text"
-        android:hint="Número da Agência"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spnBanco">
 
-    <EditText
-        android:id="@+id/txtNumero"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtAgencia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Número da Agência"
+            android:inputType="text"
+            android:text="@={conta.agencia}" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilNumero"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/txtAgencia"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:inputType="text"
-        android:hint="Número da Conta"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilAgencia">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtNumero"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Número da Conta"
+            android:inputType="text"
+            android:text="@={conta.numero}" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnSalvar"
@@ -69,3 +102,4 @@
         app:layout_constraintStart_toEndOf="@id/btnSalvar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

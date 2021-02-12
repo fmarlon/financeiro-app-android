@@ -5,9 +5,9 @@ import java.math.BigDecimal
 
 data class Conta (
     val id : Int = 0,
-    val nome: String = "",
-    val banco: Banco = Banco(),
-    val numero: String = "",
-    val agencia: String = "",
-    val saldo: BigDecimal = BigDecimal.ZERO
+    var nome: String = "",
+    var banco: Banco = Banco(),
+    var numero: String = "",
+    var agencia: String = "",
+    var saldo: BigDecimal = BigDecimal.ZERO
 ): Serializable
