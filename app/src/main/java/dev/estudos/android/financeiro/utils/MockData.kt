@@ -14,10 +14,10 @@ object MockData {
     )
 
     val CONTAS = listOf(
-        Conta(1, "Minha Conta BB", Banco(id = 1), agencia = "2809-6", numero = "28088-7"),
-        Conta(1, "Minha Conta Bradesco", Banco(id = 237), agencia = "0475", numero = "2009-5"),
-        Conta(1, "Minha Conta Caixa", Banco(id = 104), agencia = "2546-2", numero = "103002546-0"),
-        Conta(1, "Minha Conta Santander", Banco(id = 33), agencia = "103566-5", numero = "1022548-8")
+        Conta(1, "Minha Conta BB", idBanco = 1, agencia = "2809-6", numero = "28088-7"),
+        Conta(1, "Minha Conta Bradesco", idBanco = 237, agencia = "0475", numero = "2009-5"),
+        Conta(1, "Minha Conta Caixa", idBanco = 104, agencia = "2546-2", numero = "103002546-0"),
+        Conta(1, "Minha Conta Santander", idBanco = 33, agencia = "103566-5", numero = "1022548-8")
     )
 
 }

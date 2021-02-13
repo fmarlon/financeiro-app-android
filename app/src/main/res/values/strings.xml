@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">FinanceiroApp</string>
+    <string name="spinner_value_property_tag">value_property_tag</string>
+    <string name="spinner_value_member_tag">value_member_tag</string>
+    <string name="spinner_items_tag">items_tag</string>
+    <string name="spinner_value_tag">value_tag</string>
 </resources>

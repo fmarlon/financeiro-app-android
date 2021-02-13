@@ -6,7 +6,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import dev.estudos.android.financeiro.databinding.ItemContaBinding
 import dev.estudos.android.financeiro.model.Conta
+import dev.estudos.android.financeiro.model.OperationType
 import dev.estudos.android.financeiro.ui.CONTA_EXTRA_PARAM
+import dev.estudos.android.financeiro.ui.OPERATION_TYPE_PARAM
 import dev.estudos.android.financeiro.ui.activities.FormContaActivity
 import dev.estudos.android.financeiro.ui.getImageResource
 
@@ -20,7 +22,10 @@ class ContaRecycleViewAdapter(val list: List<Conta>) : RecyclerView.Adapter<Cont
         viewHolder.itemView.setOnClickListener {
             val conta = viewHolder.item!!
             val intent = Intent(parent.context, FormContaActivity::class.java)
+
             intent.putExtra(CONTA_EXTRA_PARAM, conta)
+            intent.putExtra(OPERATION_TYPE_PARAM, OperationType.UPDATE)
+
             parent.context.startActivity(intent)
         }
         return viewHolder;
@@ -40,7 +45,7 @@ class ContaRecycleViewAdapter(val list: List<Conta>) : RecyclerView.Adapter<Cont
 
         fun bind(item: Conta) {
             this.item = item
-            val image = binding.root.context.getImageResource("img_banco_${item.banco.id}")
+            val image = binding.root.context.getImageResource("img_banco_${item.idBanco}")
             binding.imgBanco.setImageResource(image)
             binding.txtNome.text = item.nome
             binding.txtAgencia.text = item.agencia

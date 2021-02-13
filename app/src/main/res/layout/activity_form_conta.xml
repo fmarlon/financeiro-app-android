@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="android.view.View"/>
         <variable
             name="conta"
             type="dev.estudos.android.financeiro.model.Conta" />
@@ -16,13 +17,33 @@
     tools:context=".ui.activities.FormContaActivity">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilNome"
+        android:id="@+id/tilId"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:visibility="@{conta.id == 0 ? View.GONE : View.VISIBLE}"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ID"
+            android:enabled="false"
+            android:focusable="false"
+            android:text="@{String.valueOf(conta.id)}" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilNome"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilId">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtNome"
@@ -38,7 +59,7 @@
         style="@style/Widget.AppCompat.Spinner.Underlined"
         android:layout_height="wrap_content"
         android:layout_width="0dp"
-        app:selectionItem="@={conta.banco}"
+        app:selectedValue="@={conta.idBanco}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tilNome" />
