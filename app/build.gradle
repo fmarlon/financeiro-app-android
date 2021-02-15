@@ -61,6 +61,11 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-reflect:1.4.30"
 
+    // biblioteca para injecao de dependencia
+    def koin_version = '2.2.2'
+    implementation "org.koin:koin-android:$koin_version"
+    implementation "org.koin:koin-android-viewmodel:$koin_version"
+
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'

@@ -1,4 +1,4 @@
-package dev.estudos.android.financeiro.ui
+package dev.estudos.android.financeiro.ui.utils
 
 import android.util.Log
 import android.view.View
@@ -14,8 +14,13 @@ var Spinner.valueProperty: String?
     set(value) = this.setTag(R.string.spinner_value_property_tag, value)
 
 var Spinner.selectedValue: Any?
-    get() = SpinnerValueBindingAdapter.getSelectedValueForSpinner(this)
-    set(value) = SpinnerValueBindingAdapter.setSelectedValueForSpinner(this, value)
+    get() = SpinnerValueBindingAdapter.getSelectedValueForSpinner(
+        this
+    )
+    set(value) = SpinnerValueBindingAdapter.setSelectedValueForSpinner(
+        this,
+        value
+    )
 
 fun Spinner.getPositionForValue(value: Any?): Int {
     val items : List<Any>? = this.getTag(R.string.spinner_items_tag) as List<Any>?

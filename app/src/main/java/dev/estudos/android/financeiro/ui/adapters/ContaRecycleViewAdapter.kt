@@ -7,10 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 import dev.estudos.android.financeiro.databinding.ItemContaBinding
 import dev.estudos.android.financeiro.model.Conta
 import dev.estudos.android.financeiro.model.OperationType
-import dev.estudos.android.financeiro.ui.CONTA_EXTRA_PARAM
-import dev.estudos.android.financeiro.ui.OPERATION_TYPE_PARAM
-import dev.estudos.android.financeiro.ui.activities.FormContaActivity
-import dev.estudos.android.financeiro.ui.getImageResource
+import dev.estudos.android.financeiro.ui.utils.CONTA_EXTRA_PARAM
+import dev.estudos.android.financeiro.ui.utils.OPERATION_TYPE_PARAM
+import dev.estudos.android.financeiro.ui.contas.FormContaActivity
+import dev.estudos.android.financeiro.ui.utils.getImageResource
 
 class ContaRecycleViewAdapter(val list: List<Conta>) : RecyclerView.Adapter<ContaRecycleViewAdapter.ViewHolder>() {
 

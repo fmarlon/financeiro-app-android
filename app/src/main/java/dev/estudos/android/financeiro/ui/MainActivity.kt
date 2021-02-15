@@ -1,10 +1,11 @@
-package dev.estudos.android.financeiro.ui.activities
+package dev.estudos.android.financeiro.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import dev.estudos.android.financeiro.R
+import dev.estudos.android.financeiro.ui.contas.ListaContasActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,7 +14,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun btContasClick(view: View) {
-        startActivity(Intent(this, ContasActivity::class.java))
+        startActivity(Intent(this, ListaContasActivity::class.java))
     }
 
     fun btCategoriasClick(view: View) {

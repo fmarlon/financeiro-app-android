@@ -10,9 +10,9 @@ import android.widget.Spinner
 import dev.estudos.android.financeiro.R
 import dev.estudos.android.financeiro.databinding.BancoSpinnerItemBinding
 import dev.estudos.android.financeiro.model.Banco
-import dev.estudos.android.financeiro.ui.SpinnerValueBindingAdapter
-import dev.estudos.android.financeiro.ui.getImageResource
-import dev.estudos.android.financeiro.ui.selectedValue
+import dev.estudos.android.financeiro.ui.utils.SpinnerValueBindingAdapter
+import dev.estudos.android.financeiro.ui.utils.getImageResource
+import dev.estudos.android.financeiro.ui.utils.selectedValue
 
 class BancoSpinnerAdapter(context: Context, val resource: Int, val bancos: List<Banco>) : ArrayAdapter<Banco>(context, resource, bancos) {
 

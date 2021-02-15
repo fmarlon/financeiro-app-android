@@ -1,12 +1,8 @@
-package dev.estudos.android.financeiro.ui
+package dev.estudos.android.financeiro.ui.utils
 
 import android.content.Context
 import android.view.View
-import android.widget.AdapterView
-import android.widget.Spinner
-import androidx.databinding.BindingAdapter
-import androidx.databinding.InverseBindingAdapter
-import androidx.databinding.InverseBindingListener
+import kotlin.reflect.KProperty
 
 fun Context.getImageResource(imageName: String): Int {
     val resId: Int = this.resources.getIdentifier(
@@ -19,6 +15,15 @@ fun Context.getImageResource(imageName: String): Int {
 
 fun validateField(view: View, failFunction: (view: View) -> Boolean, failMessage: String) {
     if (failFunction.invoke(view)) {
-        throw UIValidationException(view, failMessage)
+        throw UIValidationException(
+            view,
+            failMessage
+        )
+    }
+}
+
+fun validateField(field: String, failFunction: () -> Boolean, failMessage: String) {
+    if (failFunction.invoke()) {
+        throw ValidationException(field, failMessage)
     }
 }
