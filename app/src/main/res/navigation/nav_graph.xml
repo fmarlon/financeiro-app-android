@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="dev.estudos.android.financeiro.ui.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_listaContasFragment"
+            app:destination="@id/listaContasFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listaContasFragment"
+        android:name="dev.estudos.android.financeiro.ui.contas2.ListaContasFragment"
+        android:label="Lista de Contas"
+        tools:layout="@layout/fragment_conta_list" />
+</navigation>

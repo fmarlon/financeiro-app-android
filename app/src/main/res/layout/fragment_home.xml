@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    tools:context=".ui.HomeFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="28sp"
+        android:gravity="center"
+        android:layout_margin="28dp"
+        android:text="@string/hello_blank_fragment" />
+
+    <Button
+        android:id="@+id/btContas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Contas"
+        />
+
+    <Button
+        android:id="@+id/btCategorias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Categorias"
+        android:layout_marginTop="32dp"
+        android:onClick="btCategoriasClick"
+        />
+
+    <Button
+        android:id="@+id/btLancamentos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lançamentos"
+        android:layout_marginTop="32dp"
+        android:onClick="btLancamentosClick"
+        />
+
+</LinearLayout>
