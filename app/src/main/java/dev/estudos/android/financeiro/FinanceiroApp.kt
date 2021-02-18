@@ -36,7 +36,6 @@ class FinanceiroApp: Application() {
             if (dbInstance == null) {
                 dbInstance = Room
                     .databaseBuilder(context, AppDatabase::class.java, "financeiro")
-                    .allowMainThreadQueries()
                     .fallbackToDestructiveMigration()
                     .build()
             }

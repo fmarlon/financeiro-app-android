@@ -7,10 +7,10 @@ import dev.estudos.android.financeiro.model.Conta
 interface ContaDao {
 
     @Query("SELECT * FROM Conta")
-    fun getAll(): List<Conta>
+    suspend fun getAll(): List<Conta>
 
     @Query("SELECT * FROM Conta WHERE id = :id")
-    fun getById(id: Int): Conta
+    suspend fun getById(id: Int): Conta
 
     @Insert
     fun insert(conta: Conta)

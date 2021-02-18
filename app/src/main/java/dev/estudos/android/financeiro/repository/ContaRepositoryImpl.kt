@@ -13,7 +13,7 @@ class ContaRepositoryImpl(val contaDao: ContaDao): ContaRepository {
         contaDao.update(conta)
     }
 
-    override fun getAll(): List<Conta> {
+    override suspend fun getAll(): List<Conta> {
         return contaDao.getAll()
     }
 

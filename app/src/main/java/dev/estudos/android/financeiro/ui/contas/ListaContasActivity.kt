@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dev.estudos.android.financeiro.databinding.ActivityContasBinding
@@ -33,9 +34,11 @@ class ListaContasActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        val contas = viewModel.getContas()
+        viewModel.getContas()
 
-        binding.listview.adapter = ContaRecycleViewAdapter(contas)
+        viewModel.contasLiveData.observe(this, Observer {
+            binding.listview.adapter = ContaRecycleViewAdapter(it)
+        })
     }
 
     fun btnAdicionarClick(view: View) {

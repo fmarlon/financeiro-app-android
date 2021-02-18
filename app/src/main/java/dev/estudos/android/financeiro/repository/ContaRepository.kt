@@ -8,6 +8,6 @@ interface ContaRepository {
 
     fun update(conta: Conta)
 
-    fun getAll(): List<Conta>
+    suspend fun getAll(): List<Conta>
 
 }
